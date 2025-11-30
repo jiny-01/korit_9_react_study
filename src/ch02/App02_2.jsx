@@ -31,6 +31,8 @@ export default App02_2;
 
 //InputBox
 //setName(), setAge()로 입력값 변경해줌 - input 창에 입력한 값으로
+//set 함수는 즉시 실행이 아니다 => 이벤트 핸들러 함수가 모두 끝나면 Name 의 값을
+// 입력한 (e.target.value) name 의 값으로 바꿔서 다시 컴포넌트를 렌더링해주세요라고 예약해두는 것
 function InputBox({ name, setName, age, setAge }) {
   const handleNameInputOnChange = (e) => {
     console.log(e.target.value);
@@ -89,3 +91,5 @@ function DisplayBox({ displayName, displayAge }) {
 //     </div>
 //   );
 // }
+
+
