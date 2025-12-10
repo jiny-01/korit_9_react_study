@@ -17,7 +17,6 @@ function UseEffect04_2() {
     setIsZero(square === 0);
   }, [square]);
 
-
   useEffect(() => {
     if (isZero) {
       setTimeout(() => {      //alert 띄울 때 약간의 딜레이 0.1초라도 줌
@@ -26,13 +25,11 @@ function UseEffect04_2() {
     }
   });
 
-
   const handleUpOnClick = (e) => {
     console.log("버튼 클릭됨");
     setNum((prev) => prev + 1);
   };
 
-  
   const handleOnClick = (value) => {
     if (value < 0 && num < 1) {
       //0이면서 -1감소 눌렀을 때
