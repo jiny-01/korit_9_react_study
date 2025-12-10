@@ -1,9 +1,7 @@
-import axios from "axios";
 import { useState } from "react";
 
-function Axios02() {
-  //사용자가 <input> 창에 입력하는 검색어 저장하는 상태
-  //초기값 username: ""
+function Axios03() {
+    //18
   const [inputValue, setInputValue] = useState({
     username: "",
   });
@@ -11,34 +9,25 @@ function Axios02() {
   const [users, setUsers] = useState([]);
 
   const getUsersApi = async () => {
-    //params 객체를 사용해 inputValue.username 에 담긴 값 서버로 보냄
-    const response = await axios.get("http://192.168.2.101:8080/users", {
+    const response = await axios.get("", {
       params: { username: inputValue.username },
     });
     setUsers(response.data);
   };
 
-  // input 창에 글자 입력할 때마다 실행
   const handleInputOnChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target;   //input?
     setInputValue({
-      ...inputValue,   //원래 있는 값
+      ...inputValue,
       [name]: value,
     });
   };
 
-  const handleInputOnKeyDown = (e) => {
-    console.log(e);
+  const handleInputOnKeyDow = () => {
     if (e.keyCode === 13) {
       //enter 키
     }
   };
-
-  
-  const handleSearchOnClick = () => {
-
-  };
-
 
   return (
     <>
@@ -54,4 +43,4 @@ function Axios02() {
   );
 }
 
-export default Axios02;
+export default Axios03;

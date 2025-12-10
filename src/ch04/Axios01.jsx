@@ -7,15 +7,16 @@ function Axios01() {
   const [refetch, setRefetch] = useState(true);
 
   //   const response = axios.get("http://192.168.2.101:8080/users");
-  //   console.log(response); // 결과: promise
+  //   console.log(response);     // 결과: promise
   //모든 요청은 비동기임
   // #1) refetch 로 한 번만 실행되도록 막음
+
 
   //async-await 로 변경 -> 동기적으로 동작
   const getUsersApi = async () => {
     console.log("콘솔!!");
     if (refetch) {
-      const response = await axios.get("http://192.168.2.101:8080/users");
+      const response = await axios.get("http://192.168.2.101:8080/study/students");
       console.log(response.data);
       setUsers(response.data);
       setRefetch(false);   
@@ -34,7 +35,7 @@ function Axios01() {
   // #2) useEffect 로 최초 1번만 실행
   useEffect(() => {
     axios
-      .get("http://192.168.2.101:8080/users")
+      .get("http://192.168.2.101:8080/study/students")
       .then((response) => setUsers(response.data));
   }, []);
 
@@ -44,8 +45,8 @@ function Axios01() {
   
   useEffect(() => {
     if (refetch) {
-      axios.get("http://192.168.2.101:8080/users").then((a) => {
-        console.log(a.headers["content-type"]); //키 값으로 참조
+      axios.get("http://192.168.2.101:8080/study/students").then((a) => {
+        console.log(a.headers["content-type"]);  //키 값으로 참조
         // console.log(a.data[0].username);
         setUsers(a.data);
         setRefetch(false);
@@ -89,3 +90,5 @@ function Axios01() {
 }
 
 export default Axios01;
+
+
